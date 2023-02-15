@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginfrag">
+
+    <fragment
+        android:id="@+id/loginfrag"
+        android:name="com.example.constrain_layout.Loginfrag"
+        android:label="fragment_loginfrag"
+        tools:layout="@layout/fragment_loginfrag" >
+        <action
+            android:id="@+id/action_loginfrag_to_signupfrag"
+            app:destination="@id/signupfrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupfrag"
+        android:name="com.example.constrain_layout.signupfrag"
+        android:label="fragment_signupfrag"
+        tools:layout="@layout/fragment_signupfrag" />
+</navigation>
