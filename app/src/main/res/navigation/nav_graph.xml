@@ -18,5 +18,9 @@
         android:id="@+id/signupfrag"
         android:name="com.example.constrain_layout.signupfrag"
         android:label="fragment_signupfrag"
-        tools:layout="@layout/fragment_signupfrag" />
+        tools:layout="@layout/fragment_signupfrag" >
+        <action
+            android:id="@+id/action_signupfrag_to_loginfrag"
+            app:destination="@id/loginfrag" />
+    </fragment>
 </navigation>
