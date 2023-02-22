@@ -1,141 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+
+
+<data>
+    <variable name="getst"    type="com.example.constrain_layout.model.Data_Binding" />
+    <variable name="syntext"     type="com.example.constrain_layout.model.Data_Binding" />
+
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".signupfrag"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingStart="@dimen/_10sdp"
-    android:paddingEnd="@dimen/_10sdp">
+    android:padding="@dimen/_11sdp">
 
     <TextView
         android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="104dp"
-        android:text="Get Started!"
+        android:text="@{getst.Getst}"
         android:textColor="@color/black"
-        android:textSize="@dimen/_35sdp"
-        android:textStyle="normal" />
-
-
-
+        android:textSize="@dimen/_38sdp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_22sdp"/>
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create an account to Discoa to get all features."
-        android:textSize="@dimen/_12ssp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="191dp"/>
+        android:layout_marginStart="@dimen/_16sdp"
+        android:text="@{syntext.Syntext}"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/start"
+        android:layout_marginEnd="@dimen/_16sdp"
+        tools:layout_editor_absoluteY="109dp" />
 
-
-
-
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edname"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="@dimen/_200sdp"
-        android:layout_marginEnd="10dp"
-        android:orientation="vertical">
+        android:layout_marginStart="@dimen/_11sdp"
+        android:layout_marginEnd="@dimen/_11sdp"
+        android:hint="Your name"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:endIconTint="@color/black"
+        app:startIconDrawable="@drawable/account_circle"
+        app:startIconTint="@color/black"
+        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toBottomOf="@id/text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edname"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed2name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your name"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidthFocused="2dp"
-            app:endIconTint="@color/black"
-            app:startIconDrawable="@drawable/account_circle"
-            app:startIconTint="@color/black">
+            android:inputType="text"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="207dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edemail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginStart="@dimen/_11sdp"
+        android:layout_marginEnd="@dimen/_11sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:endIconTint="@color/black"
+        app:startIconDrawable="@drawable/email"
+        app:startIconTint="@color/black"
+        app:layout_constraintStart_toStartOf="@id/edname"
+        app:layout_constraintEnd_toEndOf="@id/edname"
+        app:layout_constraintTop_toBottomOf="@id/edname"
+        android:layout_marginTop="@dimen/_40sdp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed3email"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:orientation="vertical"
-            android:paddingTop="25dp">
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/edemail"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconTint="@color/black"
-                app:startIconDrawable="@drawable/email"
-                app:startIconTint="@color/black">
+    </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edpass"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginStart="@dimen/_11sdp"
+        android:layout_marginEnd="@dimen/_11sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/black"
+        app:startIconDrawable="@drawable/password"
+        app:startIconTint="@color/black"
+        app:layout_constraintStart_toStartOf="@id/edemail"
+        app:layout_constraintEnd_toEndOf="@id/edemail"
+        app:layout_constraintTop_toBottomOf="@id/edemail"
+        android:layout_marginTop="@dimen/_40sdp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/edpass2"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:hint="password"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconTint="@color/black"
-                app:startIconDrawable="@drawable/password"
-                app:startIconTint="@color/black"
-                app:endIconMode="password_toggle">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed3password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btnsing2"
-                android:layout_width="@dimen/_120sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_75sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginBottom="149dp"
-                android:background="@drawable/button"
-                android:backgroundTint="#3033FF"
-                android:text="Sign up"
-                android:textSize="@dimen/_15ssp" />
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btnsing2"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#3033FF"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="@id/edpass"
+        app:layout_constraintEnd_toEndOf="@id/edpass"
+        app:layout_constraintTop_toBottomOf="@id/edpass"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:background="@drawable/button"/>
     <Button
         android:id="@+id/btnlog2"
         android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/_75sdp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/button"
+        android:layout_height="wrap_content"
         android:backgroundTint="#3033FF"
-        android:text="Log in"
-        android:textSize="@dimen/_15ssp" />
+        android:text="Log In"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="@id/btnsing2"
+        app:layout_constraintEnd_toEndOf="@id/btnsing2"
+        app:layout_constraintTop_toBottomOf="@id/btnsing2"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:background="@drawable/button"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
